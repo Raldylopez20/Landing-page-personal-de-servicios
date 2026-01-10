@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raldy Lopez - Desarrollo Web Profesional</title>
+    
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         NAVEGACIÓN - NAVIGATION BAR
+         Barra de navegación fija en la parte superior
+         ============================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">RL</div>
+            
+            <!-- Menú de navegación -->
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            
+            <!-- Botón de WhatsApp en la navegación -->
+            <a href="https://wa.me/+18294635850" class="whatsapp-btn-nav" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 9.89-5.335 9.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION - SECCIÓN PRINCIPAL
+         Sección de bienvenida con título y botones
+         ============================================ -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <!-- Título principal con efecto gradiente animado -->
+            <h1 class="hero-title">
+                <span class="gradient-text">RALDY LOPEZ</span>
+            </h1>
+            
+            <!-- Subtítulo -->
+            <p class="hero-subtitle">Desarrollo Web Profesional</p>
+            
+            <!-- Descripción -->
+            <p class="hero-description">Creo experiencias digitales impactantes que convierten visitantes en clientes</p>
+            
+            <!-- Botones de acción -->
+            <div class="hero-buttons">
+                <!-- Botón para ver proyectos (scroll suave) -->
+                <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+                
+                <!-- Botón de WhatsApp -->
+                <a href="https://wa.me/+18294635850" class="btn-secondary" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 9.89-5.335 9.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <!-- Indicador de scroll animado -->
+        <div class="hero-scroll">
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SERVICIOS - SERVICES SECTION
+         Sección que muestra los servicios ofrecidos
+         ============================================ -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <!-- Título de la sección -->
+            <h2 class="section-title">¿Por qué elegir mis servicios?</h2>
+            <p class="section-subtitle">Transformo tus ideas en experiencias digitales que generan resultados</p>
+            
+            <!-- Grid de servicios - 3 columnas en desktop -->
+            <div class="services-grid">
+                
+                <!-- SERVICIO 1: Páginas Web Profesionales -->
+                <div class="service-card">
+                    <!-- Icono del servicio -->
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="15" y2="9"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <!-- Título del servicio -->
+                    <h3>Páginas Web Profesionales</h3>
+                    <!-- Descripción del servicio -->
+                    <p>Diseño y desarrollo de sitios web modernos, rápidos y optimizados para conversiones</p>
+                </div>
+                
+                <!-- SERVICIO 2: Landing Pages -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18m-9-9v18"></path>
+                            <circle cx="12" cy="12" r="9"></circle>
+                        </svg>
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>Páginas de aterrizaje optimizadas para maximizar tus tasas de conversión</p>
+                </div>
+                
+                <!-- SERVICIO 3: Funnels de Ventas -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <h3>Funnels de Ventas</h3>
+                    <p>Sistemas completos de embudo de ventas para guiar a tus clientes hacia la compra</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROYECTOS - PROJECTS SECTION
+         Sección que muestra los proyectos recientes
+         ============================================ -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+
+            <!-- Título de la sección -->
+            <h2 class="section-title">Proyectos Recientes</h2>
+            <p class="section-subtitle">Casos de éxito que demuestran mi experiencia</p>
+            
+            <!-- Grid de proyectos -->
+            <div class="projects-grid">
+                
+                <!-- PROYECTO 1: -->
+                <div class="project-card">
+                    <!-- Contenedor de la imagen -->
+                    <div class="project-image">
+
+                        <!-- IMAGEN -->
+                        <img src="img/Portafolio-modelaje.png" alt="Tienda Online Moda" class="project-img">
+                        
+                        <!-- Overlay que aparece al hacer hover sobre la imagen -->
+                        <div class="project-overlay">
+                            <span class="overlay-text">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido del proyecto (texto, tecnologías y botón) -->
+                    <div class="project-content">
+                        <h3>Modeling Portfolio</h3>
+                        <p>Portafolio de modelaje personal </p>
+                        
+                        <!-- Tecnologías utilizadas en el proyecto -->
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>js</span>
+                        </div>
+                        
+                        <!-- Botón para ver el proyecto -  -->
+                        <a href="https://raldylopez20.github.io/Modeling-Portfolio/index.html" class="btn-project" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
+                    </div>
+                </div>
+                
+                <!-- PROYECTO 2: -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- IMAGEN  -->
+                        <img src="ruta/a/tu/imagen2.jpg" alt="Landing Corporativa" class="project-img">
+                        
+                        <div class="project-overlay">
+                            <span class="overlay-text">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3>Landing Corporativa</h3>
+                        <p>Sitio web institucional para empresa de consultoría tecnológica</p>
+                        
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        
+                        <a href="#" class="btn-project" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
+                    </div>
+                </div>
+                
+                <!-- PROYECTO 3: Funnel de Ventas -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
+                        <img src="ruta/a/tu/imagen3.jpg" alt="Funnel de Ventas" class="project-img">
+                        
+                        <div class="project-overlay">
+                            <span class="overlay-text">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3>Funnel de Ventas</h3>
+                        <p>Sistema completo de embudo para curso online con alta conversión</p>
+                        
+                        <div class="project-tech">
+                            <span>WordPress</span>
+                            <span>WooCommerce</span>
+                            <span>Elementor</span>
+                        </div>
+                        
+                        <a href="#" class="btn-project" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACTO - CONTACT SECTION
+         Sección de contacto con WhatsApp
+         ============================================ -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">¿Listo para empezar tu proyecto?</h2>
+            <p class="section-subtitle">Hablemos de cómo puedo ayudarte a alcanzar tus objetivos</p>
+            
+            <!-- Grid de 2 columnas: Info + Features -->
+            <div class="contact-content">
+                <!-- Columna izquierda: Información -->
+                <div class="contact-info">
+                    <h3>Hablemos directamente</h3>
+                    <p>Contáctame por WhatsApp para una consulta gratuita y sin compromiso</p>
+                    
+                    <!-- Botón grande de WhatsApp -->
+                    <a href="https://wa.me/+18294635850" class="whatsapp-btn-contact" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 9.89-5.335 9.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Chatear por WhatsApp
+                    </a>
+                </div>
+                
+                <!-- Columna derecha: Características del servicio -->
+                <div class="contact-features">
+                    <div class="feature-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Respuesta rápida</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Consulta gratuita</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Proyectos personalizados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER - PIE DE PÁGINA
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <p>Raldy Lopez. Todos los derechos reservados 2025 ©.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT - Archivo de interactividad
+         ============================================ -->
+    <script src="script.js"></script>
+</body>
+</html>
+
