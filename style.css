@@ -734,6 +734,8 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
+    min-height: 50px;
+    box-sizing: border-box;
 }
 
 /* Hover */
@@ -742,28 +744,74 @@ body {
     box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
 }
 
+/* Ajustar tamaño del SVG de WhatsApp */
+.whatsapp-btn-contact svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Botón de Instagram */
+.instagram-btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    min-height: 50px;
+    box-sizing: border-box;
+}
+
+/* Hover */
+.instagram-btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(225, 48, 108, 0.3);
+}
+
+/* Ajustar tamaño del icono de Instagram */
+.instagram-btn-contact i {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Lista de características */
 .contact-features {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
 }
 
 /* Item de característica */
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 15px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
 }
 
 /* Icono verde */
 .feature-item svg {
     color: #25d366;
     flex-shrink: 0;
+}
+
+/* Eliminar margin del último item */
+.feature-item:last-child {
+    margin-bottom: 0;
 }
 
 /* ============================================
