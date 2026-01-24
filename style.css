@@ -384,10 +384,10 @@ body {
     margin-right: auto;
 }
 
-/* Grid de servicios - 3 columnas */
+/* Grid de servicios - 2 columnas (temporalmente hasta activar el tercer servicio) */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
 }
 
