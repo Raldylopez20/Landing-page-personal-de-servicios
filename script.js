@@ -29,6 +29,47 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
+//   MENÚ HAMBURGUESA - MOBILE MENU
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // Toggle del menú hamburguesa
+    if (hamburgerMenu && navMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevenir scroll del body cuando el menú está abierto
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Cerrar menú al hacer click fuera (solo en móviles)
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !hamburgerMenu.contains(e.target) && 
+                !navMenu.contains(e.target)) {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
+
+// ============================================
 //   TYPING EFFECT - EFECTO DE ESCRITURA
 // ============================================
 
