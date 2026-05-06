@@ -1151,47 +1151,49 @@ body {
         font-size: 2rem;
     }
     
-    /* Grid de servicios 2x2 en móviles - Cards pequeñas */
+    /* Grid de servicios 1x1 en móviles - Cards grandes y elegantes */
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 500px;
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        gap: 25px;
+        max-width: 400px; /* Ancho máximo para móviles */
         margin: 0 auto;
     }
     
-    /* Cards de servicios compactas y bonitas */
+    /* Cards de servicios grandes y bonitas en móviles */
     .service-card {
-        padding: 20px 15px;
-        border-radius: 12px;
-        min-height: 280px; /* Altura controlada */
+        padding: 35px 25px;
+        border-radius: 15px;
+        min-height: 200px; /* Altura más compacta */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     
-    /* Iconos más pequeños y proporcionales */
+    /* Iconos grandes y centrados */
     .service-icon {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+    
+    /* Iconos SVG más grandes */
+    .service-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    /* Títulos más grandes */
+    .service-card h3 {
+        font-size: 1.4rem;
         margin-bottom: 15px;
     }
     
-    /* Iconos SVG más pequeños */
-    .service-icon svg {
-        width: 25px;
-        height: 25px;
-    }
-    
-    /* Títulos compactos */
-    .service-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
-    
-    /* Descripciones cortas y elegantes */
+    /* Descripciones más legibles */
     .service-card p {
-        font-size: 0.85rem;
-        line-height: 1.4;
+        font-size: 1rem;
+        line-height: 1.6;
         margin-bottom: 0;
     }
     
@@ -1210,53 +1212,59 @@ body {
         min-height: 320px; /* Altura controlada */
         display: flex;
         flex-direction: column;
+        transition: all 0.3s ease;
     }
     
     /* Imágenes más pequeñas y proporcionales */
     .project-image {
-        height: 140px;
+        height: 160px; /* Un poco más grandes */
+        position: relative;
+        overflow: hidden;
     }
     
-    /* Contenido compacto */
+    /* Efecto zoom en imágenes */
+    .project-image img {
+        transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover .project-image img {
+        transform: scale(1.05);
+    }
+    
+    /* Contenido optimizado sin tecnologías */
     .project-content {
-        padding: 15px;
+        padding: 20px;
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
     
-    /* Títulos pequeños */
+    /* Títulos más grandes y prominentes */
     .project-content h3 {
-        font-size: 1rem;
-        margin-bottom: 8px;
-        line-height: 1.3;
-    }
-    
-    /* Descripciones muy compactas */
-    .project-content p {
-        font-size: 0.8rem;
-        margin-bottom: 10px;
-        line-height: 1.3;
-        flex: 1;
-    }
-    
-    /* Tecnologías compactas */
-    .project-tech {
-        gap: 6px;
+        font-size: 1.1rem;
         margin-bottom: 12px;
+        line-height: 1.3;
+        font-weight: 600;
     }
     
-    .project-tech span {
-        font-size: 0.7rem;
-        padding: 3px 8px;
+    /* Descripciones más grandes y elegantes */
+    .project-content p {
+        font-size: 0.9rem; /* Más grandes */
+        margin-bottom: 20px;
+        line-height: 1.5;
+        flex: 1;
+        color: rgba(255, 255, 255, 0.85);
     }
     
-    /* Botones pequeños y elegantes */
+    /* Botones más grandes y prominentes */
     .btn-project {
-        padding: 8px 15px;
-        font-size: 0.8rem;
+        padding: 12px 20px;
+        font-size: 0.9rem;
         margin-top: auto;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
     
     /* 1 columna en contacto */
@@ -1284,46 +1292,52 @@ body {
     }
 }
 
-/* Móviles pequeños (hasta 480px) - Mantener grid 2x2 */
+/* Móviles pequeños (hasta 480px) - Mantener grid 1x1 en servicios */
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2.5rem;
     }
     
-    /* Mantener grid 2x2 en móviles pequeños */
+    /* Mantener grid 1x1 en móviles pequeños para servicios */
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 500px;
+        grid-template-columns: 1fr; /* 1 columna */
+        gap: 20px;
+        max-width: 350px; /* Ancho máximo para móviles pequeños */
+    }
+    
+    /* Cards grandes y centradas en móviles pequeños */
+    .service-card {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .service-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-card p {
+        font-size: 0.95rem;
     }
     
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         max-width: 500px;
-    }
-    
-    /* Cards más pequeñas pero proporcionales */
-    .service-card {
-        padding: 25px 15px;
-    }
-    
-    .service-icon {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .service-icon svg {
-        width: 25px;
-        height: 25px;
-    }
-    
-    .service-card h3 {
-        font-size: 1.1rem;
-    }
-    
-    .service-card p {
-        font-size: 0.85rem;
     }
     
     .project-image {
