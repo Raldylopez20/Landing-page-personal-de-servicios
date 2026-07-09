@@ -301,6 +301,35 @@ body {
     }
 }
 
+/* Pulso de brillo y zoom constante en el botón primary (breathing glow & scale) */
+@keyframes pulseGlowScale {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 0 0px rgba(139, 92, 246, 0);
+    }
+    50% {
+        transform: scale(1.03); /* Zoom in sutil */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 0 18px 2px rgba(139, 92, 246, 0.25);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 0 0px rgba(139, 92, 246, 0);
+    }
+}
+
+/* Destello de luz automático y periódico (shimmer) */
+@keyframes shimmerSweep {
+    0% {
+        left: -150%;
+    }
+    15% {
+        left: 150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
 /* Contenedor de botones */
 .hero-buttons {
     display: flex;
@@ -310,43 +339,112 @@ body {
     animation: fadeInUp 1s ease-out 0.9s both;
 }
 
-/* Botón primario */
+/* Botón primario (Estilo Premium Glassmorphic / Apple) */
 .btn-primary {
-    background: linear-gradient(45deg, #8b5cf6, #3b82f6);
-    color: white;
-    padding: 15px 35px;
-    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 10px 18px 10px 10px; /* Padding reducido ya que la cajita define el alto */
+    border-radius: 16px; /* Esquinas curvas tipo tarjeta Premium */
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    width: 280px; /* Ancho fijo para mantener alineación del chevron */
+    animation: pulseGlowScale 3s infinite ease-in-out; /* Respiración y zoom continuo */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
-/* Gradiente alternativo que aparece en hover */
-.btn-primary::before {
+/* Cajita del Icono (cajita estilo Link in Bio) */
+.btn-icon-box {
+    width: 38px;
+    height: 38px;
+    background: rgba(139, 92, 246, 0.2); /* Fondo morado translúcido */
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a78bfa;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Texto del botón */
+.btn-text {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* Chevron a la derecha */
+.btn-primary .bi-chevron-down {
+    margin-left: auto; /* Empuja el chevron hacia el extremo derecho */
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+/* Glow e incremento de color al hacer hover */
+.btn-primary:hover {
+    animation: none; /* Detiene la animación de respiración automática para fijar el hover */
+    transform: translateY(-4px) scale(1.04); /* Elevación y zoom en hover fijo */
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(59, 130, 246, 0.25));
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 
+        0 12px 30px rgba(139, 92, 246, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Hover de la cajita del icono */
+.btn-primary:hover .btn-icon-box {
+    background: rgba(139, 92, 246, 0.35);
+    border-color: rgba(139, 92, 246, 0.5);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Hover del icono de tap */
+.btn-primary:hover .bi-hand-index-thumb {
+    transform: scale(0.9) translateY(2px); /* Simula la pulsación del dedo */
+}
+
+/* Hover del Chevron */
+.btn-primary:hover .bi-chevron-down {
+    color: #ffffff;
+    transform: translateY(3px); /* Desplazamiento hacia abajo para indicar scroll */
+}
+
+/* Efecto Brillo / Sweep de luz (Shimmer) premium constante cada 5s */
+.btn-primary::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%; /* Comienza fuera */
-    width: 100%;
+    left: -150%;
+    width: 60%;
     height: 100%;
-    background: linear-gradient(45deg, #a855f7, #06b6d4);
-    transition: left 0.3s ease;
-    z-index: -1;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    animation: shimmerSweep 5s infinite ease-in-out; /* Brillo periódico cada 5 segundos */
 }
 
-/* El gradiente se desliza al hacer hover */
-.btn-primary:hover::before {
-    left: 0;
-}
-
-/* Efecto hover del botón */
-.btn-primary:hover {
-    transform: translateY(-3px); /* Levanta */
-    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+/* Forzar destello inmediato al hacer hover */
+.btn-primary:hover::after {
+    animation: shimmerSweep 1s ease-in-out;
 }
 
 /* Botón secundario (transparente con borde) */
@@ -454,21 +552,26 @@ body {
    AQUÍ ESTÁN LAS ANIMACIONES QUE FALTABAN 🔥
    ============================================ */
 
-/* Tarjeta de servicio con animación */
+/* Tarjeta de servicio con animación (Glassmorphism Premium) */
 .service-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px; /* Esquinas más redondeadas y modernas */
+    padding: 45px 30px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.05);
     
     /* ANIMACIÓN DE ENTRADA - Aparece desde abajo */
-    opacity: 0; /* Comienza invisible */
-    transform: translateY(50px); /* Comienza 50px abajo */
-    animation: slideInUp 0.6s ease-out forwards; /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Animación de entrada desde abajo (slide in up) */
@@ -485,80 +588,127 @@ body {
 
 /* Delays para que aparezcan una por una */
 .service-card:nth-child(1) {
-    animation-delay: 0.1s; /* Primera card aparece primero */
+    animation-delay: 0.1s;
 }
 
 .service-card:nth-child(2) {
-    animation-delay: 0.2s; /* Segunda card con delay */
+    animation-delay: 0.2s;
 }
 
 .service-card:nth-child(3) {
-    animation-delay: 0.3s; /* Tercera card con más delay */
+    animation-delay: 0.3s;
 }
 
-/* Efecto de fondo al hacer hover */
-.service-card::before {
+/* Destello de luz (Shimmer) premium al hacer hover */
+.service-card::after {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.06) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    transition: none;
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* Muestra el fondo al hacer hover */
-.service-card:hover::before {
-    opacity: 1;
+.service-card:hover::after {
+    left: 150%;
+    transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Levanta la tarjeta al hacer hover */
 .service-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(139, 92, 246, 0.08), /* Brillo general sutil */
+        inset 0 1px 1px rgba(255, 255, 255, 0.12);
 }
 
-/* Icono del servicio */
+/* Icono del servicio (Cajitas estilo Apple/Link in Bio) */
 .service-icon {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto 25px;
-    background: linear-gradient(45deg, #8b5cf6, #3b82f6);
-    border-radius: 50%; /* Círculo */
+    border-radius: 18px; /* Cajitas elegantes redondeadas */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     position: relative;
     z-index: 1;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     
     /* ANIMACIÓN FLOTANTE DEL ICONO */
-    animation: floatIcon 3s ease-in-out infinite;
+    animation: floatIcon 4s ease-in-out infinite;
 }
 
-/* Animación flotante para los iconos */
+/* Personalización de colores por cajita de servicio */
+.service-card:nth-child(1) .service-icon {
+    background: rgba(139, 92, 246, 0.12); /* Morado sutil */
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #c084fc;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+    animation-delay: 0s;
+}
+
+.service-card:nth-child(2) .service-icon {
+    background: rgba(59, 130, 246, 0.12); /* Azul sutil */
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    animation-delay: 0.5s;
+}
+
+.service-card:nth-child(3) .service-icon {
+    background: rgba(99, 102, 241, 0.12); /* Índigo sutil */
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #818cf8;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+    animation-delay: 1s;
+}
+
+/* Efectos de Hover específicos en los iconos de las tarjetas */
+.service-card:hover:nth-child(1) .service-icon {
+    background: rgba(139, 92, 246, 0.25);
+    border-color: rgba(139, 92, 246, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+    transform: translateY(-8px) scale(1.05); /* Reacciona subiendo un poco más */
+}
+
+.service-card:hover:nth-child(2) .service-icon {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+    transform: translateY(-8px) scale(1.05);
+}
+
+.service-card:hover:nth-child(3) .service-icon {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: rgba(99, 102, 241, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* Animación flotante para los iconos en reposo */
 @keyframes floatIcon {
     0%, 100% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-10px); /* Sube 10px */
+        transform: translateY(-6px);
     }
-}
-
-/* Delays diferentes para cada icono */
-.service-card:nth-child(1) .service-icon {
-    animation-delay: 0s;
-}
-
-.service-card:nth-child(2) .service-icon {
-    animation-delay: 0.5s;
-}
-
-.service-card:nth-child(3) .service-icon {
-    animation-delay: 1s;
 }
 
 /* Título del servicio */
@@ -568,14 +718,28 @@ body {
     margin-bottom: 15px;
     position: relative;
     z-index: 1;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+/* Al hacer hover en la tarjeta, el título brilla sutilmente */
+.service-card:hover h3 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* Descripción del servicio */
 .service-card p {
-    opacity: 0.8;
+    opacity: 0.75;
     line-height: 1.6;
     position: relative;
     z-index: 1;
+    font-size: 0.98rem;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover p {
+    opacity: 0.95;
 }
 
 /* ============================================
@@ -595,6 +759,7 @@ body {
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: stretch; /* Align cards to have equal heights in a row */
 }
 
 /* Cuando solo hay un elemento, centrarlo en la primera columna */
@@ -604,25 +769,36 @@ body {
     max-width: 400px; /* Limitar ancho para que no se estire */
 }
 
-/* Tarjeta de proyecto con animación */
+/* Tarjeta de proyecto con animación (Glassmorphism Premium) */
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px; /* Esquinas más redondeadas y modernas */
+    padding: 14px; /* Espaciado interno tipo ClickMenu */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Permite estirarse de forma uniforme */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.04);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
     
     /* ANIMACIÓN DE ENTRADA */
     opacity: 0;
-    transform: scale(0.9);
-    animation: zoomIn 0.6s ease-out forwards;
+    transform: scale(0.95);
+    animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Animación zoom para proyectos */
 @keyframes zoomIn {
     from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     to {
         opacity: 1;
@@ -643,16 +819,73 @@ body {
     animation-delay: 0.3s;
 }
 
-/* Hover de la tarjeta de proyecto */
+/* Destello de luz (Shimmer) premium en las cards de proyectos */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.04) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    transition: none;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.project-card:hover::after {
+    left: 150%;
+    transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover de la tarjeta de proyecto - Animación Premium */
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(139, 92, 246, 0.3);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+    transform: translateY(-10px) scale(1.015);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(139, 92, 246, 0.15), /* Brillo violeta */
+        0 0 80px rgba(59, 130, 246, 0.1),  /* Brillo azul de fondo */
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Interacción cohesiva: El botón reacciona cuando se hace hover en la tarjeta */
+.project-card:hover .btn-project {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover .btn-project .btn-icon-box {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.project-card:hover .btn-project .btn-icon-box i {
+    transform: translate(2px, -2px) scale(1.1);
+}
+
+.project-card:hover .btn-project .btn-text {
+    color: #ffffff;
+}
+
+.project-card:hover .btn-project .bi-chevron-right {
+    color: #ffffff;
+    transform: translateX(5px); /* Desplazamiento premium del chevron */
 }
 
 /* Contenedor de imagen */
 .project-image {
-    height: 250px;
+    width: 100%;
+    height: 220px;
+    border-radius: 16px; /* Bordes adaptados al redondeado de la card */
     position: relative;
     overflow: hidden;
 }
@@ -661,31 +894,32 @@ body {
 .project-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cubre sin deformar */
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Zoom en la imagen al hacer hover */
+/* Zoom de la imagen en hover */
 .project-card:hover .project-img {
-    transform: scale(1.1); /* Aumenta 10% */
+    transform: scale(1.06); /* Zoom fluido de alta calidad */
 }
 
-/* Overlay oscuro sobre la imagen */
+/* Overlay sobre la imagen con desenfoque de cristal */
 .project-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px); /* Difumina suavemente el fondo */
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Invisible por defecto */
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Muestra el overlay al hacer hover */
 .project-card:hover .project-overlay {
     opacity: 1;
 }
@@ -693,10 +927,11 @@ body {
 /* Texto del overlay */
 .overlay-text {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 /* Placeholder si no hay imagen */
@@ -711,23 +946,41 @@ body {
     color: rgba(255, 255, 255, 0.3);
 }
 
-/* Contenido del proyecto */
+/* Contenido de texto del proyecto */
 .project-content {
-    padding: 30px;
+    padding: 20px 6px 6px 6px; /* Un poco más de aire superior */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 /* Título del proyecto */
 .project-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-content h3 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Descripción */
 .project-content p {
-    opacity: 0.8;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    font-size: 0.92rem;
+    opacity: 0.75;
+    margin-bottom: 25px;
+    line-height: 1.55;
+    flex-grow: 1; /* Empuja el botón al final de forma uniforme */
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-content p {
+    opacity: 0.9;
 }
 
 /* Tecnologías */
@@ -740,42 +993,112 @@ body {
 
 /* Etiqueta de tecnología */
 .project-tech span {
-    background: rgba(139, 92, 246, 0.2);
-    color: #a855f7;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 0.85rem;
+    background: rgba(139, 92, 246, 0.15);
+    color: #c084fc;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
     font-weight: 500;
+    border: 1px solid rgba(139, 92, 246, 0.2);
     transition: all 0.3s ease;
 }
 
-/* Hover en tecnología */
 .project-tech span:hover {
-    background: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.25);
+    border-color: rgba(139, 92, 246, 0.4);
     transform: translateY(-2px);
 }
 
-/* Botón del proyecto */
+/* Botón del proyecto (Estilo Glassmorphic Sutil y Moderno con Icon Box) */
 .btn-project {
-    background: linear-gradient(45deg, #8b5cf6, #3b82f6);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    padding: 10px 18px 10px 10px; /* Padding reducido ya que la cajita define el alto */
+    border-radius: 16px; /* Coherente con las cards */
     font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    width: 100%; /* Ajuste al ancho de la card */
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cajita de Icono en Botón de Proyecto */
+.btn-project .btn-icon-box {
+    width: 38px;
+    height: 38px;
+    background: rgba(139, 92, 246, 0.15); /* Fondo morado translúcido */
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a78bfa;
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.15);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Icono dentro de la cajita (Flecha saliendo / Ojo) */
+.btn-project .btn-icon-box i {
+    font-size: 1.05rem;
+    transition: transform 0.3s ease;
+}
+
+/* Texto del botón */
+.btn-project .btn-text {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* Chevron a la derecha */
+.btn-project .bi-chevron-right {
+    margin-left: auto; /* Empuja el chevron hacia el extremo derecho */
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
 }
 
 /* Hover del botón */
 .btn-project:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
-    background: linear-gradient(45deg, #a855f7, #06b6d4);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(59, 130, 246, 0.25));
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 12px 30px rgba(139, 92, 246, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Hover en los elementos internos */
+.btn-project:hover .btn-icon-box {
+    background: rgba(139, 92, 246, 0.35);
+    border-color: rgba(139, 92, 246, 0.5);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.35);
+}
+
+.btn-project:hover .btn-icon-box i {
+    transform: translate(2px, -2px) scale(1.05); /* Micro-animación de salida */
+}
+
+.btn-project:hover .btn-text {
+    color: #ffffff;
+}
+
+.btn-project:hover .bi-chevron-right {
+    color: #ffffff;
+    transform: translateX(4px); /* Se desliza a la derecha */
 }
 
 /* ============================================
@@ -1000,7 +1323,7 @@ body {
     right: 30px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(45deg, #25d366, #128c7e);
+    background: #25D366; /* Verde WhatsApp oficial igual al del footer */
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1015,6 +1338,14 @@ body {
     animation: whatsappFloat 3s ease-in-out infinite;
 }
 
+/* Icono del botón flotante de WhatsApp */
+.whatsapp-float i {
+    font-size: 28px;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
 /* Animación flotante */
 @keyframes whatsappFloat {
     0%, 100% {
@@ -1027,8 +1358,9 @@ body {
 
 /* Efecto hover del botón flotante */
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    background: #128C7E;
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
 }
 
 /* Efecto de pulso */
@@ -1143,6 +1475,9 @@ body {
     .btn-primary, .btn-secondary {
         width: 100%;
         max-width: 300px;
+    }
+    
+    .btn-secondary {
         justify-content: center;
     }
     
@@ -1197,74 +1532,110 @@ body {
         margin-bottom: 0;
     }
     
-    /* Grid de proyectos 2x2 en móviles - Cards pequeñas */
+    /* Grid de proyectos 2x2 en móviles - Cards limpias y proporcionales */
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 500px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+        gap: 14px; /* Espacio elegante entre cards */
+        max-width: 600px;
         margin: 0 auto;
+        align-items: stretch;
     }
     
-    /* Cards de proyectos compactas y bonitas */
+    /* Cards de proyectos espaciosas y bonitas */
     .project-card {
-        border-radius: 12px;
-        overflow: hidden;
-        min-height: 320px; /* Altura controlada */
+        border-radius: 18px;
+        padding: 12px; /* Espaciado interno balanceado */
+        height: 100%;
+        min-height: 310px; /* Altura optimizada para 2 columnas */
         display: flex;
         flex-direction: column;
-        transition: all 0.3s ease;
+        justify-content: space-between;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
-    /* Imágenes más pequeñas y proporcionales */
+    /* Imágenes */
     .project-image {
-        height: 160px; /* Un poco más grandes */
+        height: 120px; /* Altura proporcional para 2 columnas */
+        border-radius: 12px;
         position: relative;
         overflow: hidden;
     }
     
     /* Efecto zoom en imágenes */
     .project-image img {
-        transition: transform 0.3s ease;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     .project-card:hover .project-image img {
-        transform: scale(1.05);
+        transform: scale(1.06);
     }
     
-    /* Contenido optimizado sin tecnologías */
+    /* Contenido de texto */
     .project-content {
-        padding: 20px;
+        padding: 14px 2px 2px 2px;
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
     
-    /* Títulos más grandes y prominentes */
+    /* Títulos */
     .project-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
+        font-size: 1.05rem;
+        margin-bottom: 4px;
         line-height: 1.3;
-        font-weight: 600;
+        font-weight: 700;
     }
     
-    /* Descripciones más grandes y elegantes */
+    /* Descripciones acortadas a 2 líneas para que todo quede simétrico en 2 columnas */
     .project-content p {
-        font-size: 0.9rem; /* Más grandes */
-        margin-bottom: 20px;
-        line-height: 1.5;
+        font-size: 0.78rem;
+        margin-bottom: 14px;
+        line-height: 1.45;
         flex: 1;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(255, 255, 255, 0.7);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     
-    /* Botones más grandes y prominentes */
+    /* Botón del proyecto adaptado para 2 columnas */
     .btn-project {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 8px 10px;
+        font-size: 0.75rem; /* Fuente pequeña para que entre en una sola línea */
         margin-top: auto;
-        font-weight: 500;
-        border-radius: 8px;
-        transition: all 0.3s ease;
+        font-weight: 600;
+        border-radius: 10px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        justify-content: center; /* Centrar texto y chevron */
+        gap: 0;
+        position: relative;
+    }
+    
+    /* Ocultar la cajita de icono en móviles */
+    .btn-project .btn-icon-box {
+        display: none;
+    }
+    
+    /* Posicionar chevron derecho (>) de forma inline para evitar encimarse */
+    .btn-project .bi-chevron-right {
+        display: inline-block;
+        position: static;
+        margin-left: 6px;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        transform: none;
+    }
+    
+    /* Ajustar texto del overlay en móviles para evitar que se desborde */
+    .overlay-text {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-align: center;
+        width: 100%;
+        padding: 0 4px;
     }
     
     /* 1 columna en contacto */
@@ -1305,7 +1676,7 @@ body {
         max-width: 350px; /* Ancho máximo para móviles pequeños */
     }
     
-    /* Cards grandes y centradas en móviles pequeños */
+    /* Cards de servicios */
     .service-card {
         padding: 30px 20px;
         display: flex;
@@ -1332,38 +1703,6 @@ body {
     
     .service-card p {
         font-size: 0.95rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 500px;
-    }
-    
-    .project-image {
-        height: 150px;
-    }
-    
-    .project-content {
-        padding: 15px;
-    }
-    
-    .project-content h3 {
-        font-size: 1rem;
-    }
-    
-    .project-content p {
-        font-size: 0.8rem;
-    }
-    
-    .project-tech span {
-        font-size: 0.7rem;
-        padding: 3px 8px;
-    }
-    
-    .btn-project {
-        padding: 8px 15px;
-        font-size: 0.8rem;
     }
 }
 
