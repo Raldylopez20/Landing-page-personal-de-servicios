@@ -245,6 +245,7 @@ const getCardConfigs = () => {
             { left: '36%', top: '88%', rot:   5, w: Math.round(130 * scale), depth: 0 },
             { left: '4%',  top: '48%', rot:  -6, w: Math.round(126 * scale), depth: 0 },
             { left: '78%', top: '48%', rot:   7, w: Math.round(126 * scale), depth: 0 },
+            { left: '26%', top: '86%', rot:  -7, w: Math.round(126 * scale), depth: 0 },
         ];
     }
 
@@ -260,7 +261,7 @@ const getCardConfigs = () => {
         { left: '24%', top: '6%',  rot:  -6, w: Math.round(148 * scale), depth: 0.75 },
         { left: '12%', top: '87%', rot:  -5, w: Math.round(146 * scale), depth: 0.80 },
 
-        // Right side (8 cards)
+        // Right side (9 cards)
         { left: '84%', top: '9%',  rot:   9, w: Math.round(168 * scale), depth: 1.10 },
         { left: '68%', top: '14%', rot:  -8, w: Math.round(156 * scale), depth: 0.85 },
         { left: '86%', top: '36%', rot:  -6, w: Math.round(178 * scale), depth: 1.45 },
@@ -269,6 +270,7 @@ const getCardConfigs = () => {
         { left: '67%', top: '76%', rot:  -9, w: Math.round(158 * scale), depth: 0.95 },
         { left: '44%', top: '5%',  rot:  -4, w: Math.round(148 * scale), depth: 0.65 },
         { left: '74%', top: '86%', rot:   6, w: Math.round(146 * scale), depth: 0.80 },
+        { left: '78%', top: '23%', rot:  -5, w: Math.round(150 * scale), depth: 0.90 },
     ];
 };
 

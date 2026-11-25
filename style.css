@@ -1278,6 +1278,48 @@ footer {
         height: 70px;
     }
 
+    .pc-card {
+        width: clamp(232px, 64vw, 272px);
+        padding: 7px;
+        border-radius: 22px;
+    }
+
+    .pc-frame {
+        border-radius: 16px;
+    }
+
+    .pc-media {
+        aspect-ratio: 4 / 4.2;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .pc-identity {
+        left: 0.95rem;
+        right: 0.95rem;
+        bottom: 0.85rem;
+    }
+
+    .pc-name {
+        font-size: 1.2rem;
+    }
+
+    .pc-role {
+        font-size: 0.78rem;
+    }
+
+    .pc-footer {
+        padding: 0.75rem 0.85rem;
+    }
+
+    .pc-handle {
+        font-size: 0.78rem;
+    }
+
+    .pc-contact-btn {
+        padding: 0.44rem 0.78rem;
+        font-size: 0.74rem;
+    }
+
     .services-showcase {
         min-height: auto;
         padding: 4.5rem 0;
