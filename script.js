@@ -278,7 +278,7 @@ let cardConfigs = getCardConfigs();
 const floatCards = document.querySelectorAll('.hero-card-float');
 
 floatCards.forEach((card, i) => {
-    const cfg = cardConfigs[i];
+    const cfg = cardConfigs[i % cardConfigs.length];
     if (!cfg) return;
 
     gsap.set(card, { left: cfg.left, top: cfg.top, rotation: cfg.rot, width: cfg.w, opacity: 0, y: 24 });
