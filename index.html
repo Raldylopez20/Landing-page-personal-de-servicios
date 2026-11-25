@@ -4,725 +4,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raldy Lopez - Desarrollo Web Profesional</title>
+    <meta name="description" content="Ing. Raldy Lopez — Desarrollador Full Stack. Sistemas SaaS, Landing Pages y Páginas Web Profesionales.">
+    <meta name="author" content="Ing. Raldy Lopez">
+    <title>Ing. Raldy Lopez — Desarrollo Web & Full Stack</title>
 
-    <!-- Google Fonts - Montserrat -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
-    <!-- CSS Stylesheet -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- ============================================
-         NAVEGACIÓN - NAVIGATION BAR
-         Barra de navegación fija en la parte superior
-         ============================================ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-            <a href="#inicio" class="nav-logo">RL</a>
 
-            <!-- Menú de navegación -->
-            <ul class="nav-menu">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-circle" id="cursorCircle"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header id="header">
+        <nav class="container">
+            <a href="#inicio" class="logo">RL</a>
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
 
-            <!-- Menú hamburguesa -->
-            <button class="hamburger-menu" id="hamburger-menu">
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Abrir menú" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- ============================================
-         HERO SECTION - SECCIÓN PRINCIPAL
-         Sección de bienvenida con título y botones
-         ============================================ -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <!-- Título principal con efecto gradiente animado -->
-            <h1 class="hero-title">
-                <span class="gradient-text"> ING. RALDY LOPEZ</span>
-                <!-- <br>
-                <span class="gradient-text"> Ing.</span> -->
-            </h1>
+    <main>
 
-            <!-- Efecto typing animado -->
-            <div class="typing-container">
-                <span class="typing-text"></span>
-                <span class="typing-cursor">|</span>
+        <!-- ===================== HERO ===================== -->
+        <section id="inicio" class="hero">
+            <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+            <div class="hero-deco" aria-hidden="true">FRONTEND</div>
+
+            <!-- Floating project cards around the center -->
+            <div class="hero-cards" aria-hidden="true">
+                <div class="hero-card-float"><img src="img/clickmenu.jpg" alt=""></div>
+                <div class="hero-card-float"><img src="img/tapstock.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/medisys.jpg" alt=""></div>
+                <div class="hero-card-float"><img src="img/blahkcolors.jpg" alt=""></div>
+                <div class="hero-card-float"><img src="img/diapositive studio.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/lopez-gilbert.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/jaya-motors.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/joyeria-Gilbert.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/Portafolio-modelaje.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/inmoRD.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/RLopez Auto Import.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/GuitarLA.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/Blog-de-cafe.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/nucleus.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/Arquitectura-Bosque.png" alt=""></div>
+                <div class="hero-card-float"><img src="img/lopez-pro.png" alt=""></div>
             </div>
 
-            <!-- Descripción -->
-            <p class="hero-description">Creo experiencias digitales impactantes que convierten visitantes en clientes
-            </p>
+            <div class="hero-content">
+                <!-- ReactBits-style 3D Holographic Profile Card -->
+                <div class="pc-wrapper" id="profileCardWrapper">
+                    <div class="pc-card" id="profileCard">
+                        <div class="pc-frame">
+                            <div class="pc-media">
+                                <div class="pc-pattern" aria-hidden="true"></div>
+                                <img src="img/raldy-profile.webp" alt="Ing. Raldy Lopez" class="pc-avatar">
+                                <div class="pc-holo" aria-hidden="true"></div>
+                                <div class="pc-glare" aria-hidden="true"></div>
+                                <div class="pc-vignette" aria-hidden="true"></div>
 
-            <!-- Botones de acción -->
-            <div class="hero-buttons">
-                <!-- Botón para ver proyectos (scroll suave) -->
-                <a href="#proyectos" class="btn-primary">
-                    <span class="btn-icon-box"><i class="bi bi-hand-index-thumb"></i></span>
-                    <span class="btn-text">Ver Proyectos</span>
-                    <i class="bi bi-chevron-down"></i>
-                </a>
+                                <div class="pc-identity">
+                                    <h1 class="pc-name">
+                                        <span class="word-clip"><span class="word-slide">Ing.</span></span>
+                                        <span class="word-clip"><span class="word-slide">Raldy</span></span>
+                                        <span class="word-clip"><span class="word-slide">Lopez</span></span>
+                                    </h1>
+                                    <p class="pc-role">Full Stack</p>
+                                </div>
+                            </div>
 
-                <!-- Botón de WhatsApp (comentado temporalmente) -->
-                <!-- <a href="https://wa.me/+18294635850" class="btn-secondary" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 9.89-5.335 9.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
-                    Contactar por WhatsApp
-                </a> -->
+                            <div class="pc-footer">
+                                <div class="pc-meta">
+                                    <a href="https://www.instagram.com/raldylopez/" target="_blank" rel="noopener noreferrer" class="pc-handle">@raldylopez</a>
+                                    <span class="pc-status">
+                                        <span class="pc-status-dot" aria-hidden="true"></span>
+                                        Online
+                                    </span>
+                                </div>
+                                <a href="#contacto" class="pc-contact-btn">
+                                    <i class="bi bi-envelope"></i>
+                                    <span>Contact</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="hero-subtitle">Creo experiencias digitales impactantes que convierten visitantes en clientes.</p>
+            </div>
+
+            <div class="hero-scroll-indicator" aria-hidden="true">
+                <span class="scroll-label">scroll</span>
+                <div class="scroll-track"><div class="scroll-thumb"></div></div>
+            </div>
+        </section>
+
+        <!-- ===================== MARQUEE ===================== -->
+        <div class="marquee-section" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>Sistemas SaaS</span><span class="marquee-dot">◆</span>
+                    <span>Landing Pages</span><span class="marquee-dot">◆</span>
+                    <span>Webs Profesionales</span><span class="marquee-dot">◆</span>
+                    <span>Full Stack</span><span class="marquee-dot">◆</span>
+                    <span>React</span><span class="marquee-dot">◆</span>
+                    <span>JavaScript</span><span class="marquee-dot">◆</span>
+                    <span>UI / UX</span><span class="marquee-dot">◆</span>
+                    <span>GSAP</span><span class="marquee-dot">◆</span>
+                    <span>Sistemas SaaS</span><span class="marquee-dot">◆</span>
+                    <span>Landing Pages</span><span class="marquee-dot">◆</span>
+                    <span>Webs Profesionales</span><span class="marquee-dot">◆</span>
+                    <span>Full Stack</span><span class="marquee-dot">◆</span>
+                    <span>React</span><span class="marquee-dot">◆</span>
+                    <span>JavaScript</span><span class="marquee-dot">◆</span>
+                    <span>UI / UX</span><span class="marquee-dot">◆</span>
+                    <span>GSAP</span><span class="marquee-dot">◆</span>
+                </div>
+                <div class="marquee-content" aria-hidden="true">
+                    <span>Sistemas SaaS</span><span class="marquee-dot">◆</span>
+                    <span>Landing Pages</span><span class="marquee-dot">◆</span>
+                    <span>Webs Profesionales</span><span class="marquee-dot">◆</span>
+                    <span>Full Stack</span><span class="marquee-dot">◆</span>
+                    <span>React</span><span class="marquee-dot">◆</span>
+                    <span>JavaScript</span><span class="marquee-dot">◆</span>
+                    <span>UI / UX</span><span class="marquee-dot">◆</span>
+                    <span>GSAP</span><span class="marquee-dot">◆</span>
+                    <span>Sistemas SaaS</span><span class="marquee-dot">◆</span>
+                    <span>Landing Pages</span><span class="marquee-dot">◆</span>
+                    <span>Webs Profesionales</span><span class="marquee-dot">◆</span>
+                    <span>Full Stack</span><span class="marquee-dot">◆</span>
+                    <span>React</span><span class="marquee-dot">◆</span>
+                    <span>JavaScript</span><span class="marquee-dot">◆</span>
+                    <span>UI / UX</span><span class="marquee-dot">◆</span>
+                    <span>GSAP</span><span class="marquee-dot">◆</span>
+                </div>
             </div>
         </div>
 
-        <!-- Indicador de scroll animado -->
-        <div class="hero-scroll">
-            <div class="scroll-indicator"></div>
-        </div>
-    </section>
+        <!-- ===================== SERVICIOS ===================== -->
+        <section id="servicios" class="services-showcase">
+            <div class="container services-inner">
+                <div class="services-hero-copy">
+                    <span class="section-label">Servicios</span>
+                    <h2 class="section-title">Diseño y desarrollo <em>que convierte</em>.</h2>
+                    <p class="section-subtitle">Transformo tus ideas en experiencias digitales premium pensadas para generar resultados reales.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- ============================================
-         SERVICIOS - SERVICES SECTION
-         Sección que muestra los servicios ofrecidos
-         ============================================ -->
-    <section id="servicios" class="services">
+        <!-- ===================== PROYECTOS: SISTEMAS SaaS ===================== -->
+        <section id="proyectos" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Software & Plataformas</span>
+                    <h2 class="section-title">Sistemas SaaS</h2>
+                    <p class="section-subtitle">Productos digitales construidos con enfoque en escalabilidad y experiencia de usuario.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/clickmenu.jpg" alt="ClickMenu" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>ClickMenu</h3>
+                            <p>Sistema de menús digitales inteligentes para restaurantes.</p>
+                            <a href="https://getclickmenu.com/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/tapstock.png" alt="TapStock" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>TapStock</h3>
+                            <p>Sistema SaaS de catálogo digital.</p>
+                            <a href="https://gettapstock.com" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/medisys.jpg" alt="MediSys" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>MediSys</h3>
+                            <p>Sistema SaaS médico.</p>
+                            <a href="https://getmedisys.com" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROYECTOS: ECOMMERCES ===================== -->
+        <section id="ecommerces" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Tiendas Online</span>
+                    <h2 class="section-title">Ecommerces</h2>
+                    <p class="section-subtitle">Tiendas online diseñadas para maximizar ventas y elevar la identidad de cada marca.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/blahkcolors.jpg" alt="Blahkcolors" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Blahkcolors</h3>
+                            <p>Ecommerce para marca streetwear.</p>
+                            <a href="https://blahkcolors.com" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/GuitarLA.png" alt="Guitar LA" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Guitar LA</h3>
+                            <p>Tienda online de guitarras.</p>
+                            <a href="https://raldylopez20.github.io/Guitar-LA/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROYECTOS: PÁGINAS WEB PROFESIONALES ===================== -->
+        <section id="paginas-web" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Sitios Completos</span>
+                    <h2 class="section-title">Páginas Web Profesionales</h2>
+                    <p class="section-subtitle">Sitios web completos que combinan identidad, velocidad y arquitectura limpia.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/Portafolio-modelaje.png" alt="Modeling Portfolio" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Modeling Portfolio</h3>
+                            <p>Portafolio de modelaje personal con estética editorial.</p>
+                            <a href="https://raldylopez20.github.io/Modeling-Portfolio/index.html" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/inmoRD.png" alt="Inmo RD" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Inmo RD</h3>
+                            <p>Página web completa para una agencia inmobiliaria.</p>
+                            <a href="https://inmobiliaria.riclyn.com/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/RLopez Auto Import.png" alt="RLopez Auto Import" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>RLopez Auto Import</h3>
+                            <p>Página web completa para un dealer de vehículos.</p>
+                            <a href="https://autoimport.riclyn.com/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/Blog-de-cafe.png" alt="Blog de Café" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Blog de Café</h3>
+                            <p>Sitio web editorial dedicado al mundo del café.</p>
+                            <a href="https://raldylopez20.github.io/Blog_De_Cafe/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/nucleus.png" alt="Nucleus Wallet" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Nucleus Wallet</h3>
+                            <p>Sitio web para una cartera digital moderna.</p>
+                            <a href="https://raldylopez20.github.io/Nucleus-ewallet/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/Arquitectura-Bosque.png" alt="Arquitectura Bosque" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Arquitectura Bosque</h3>
+                            <p>Página web para una firma constructora y de arquitectura.</p>
+                            <a href="https://raldylopez20.github.io/ArquitecturaBosque/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/lopez-pro.png" alt="Lopez Pro" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Lopez Pro</h3>
+                            <p>Página web para una tienda especializada en audífonos.</p>
+                            <a href="https://raldylopez20.github.io/Tienda-audifonos/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROYECTOS: LANDING PAGES ===================== -->
+        <section id="landing-pages" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Alta Conversión</span>
+                    <h2 class="section-title">Landing Pages</h2>
+                    <p class="section-subtitle">Casos de éxito diseñados para captar atención y convertir visitantes en clientes.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/diapositive studio.png" alt="Diapositive Studios" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Diapositive Studios</h3>
+                            <p>Landing page para una agencia de marketing creativo.</p>
+                            <a href="https://raldylopez20.github.io/Diapositive.Studios/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/lopez-gilbert.png" alt="Lopez Gilbert Corredores de Seguros" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Lopez Gilbert Corredores de Seguros</h3>
+                            <p>Landing page para una oficina de corredores de seguros.</p>
+                            <a href="https://raldylopez20.github.io/Lopez-Gilbert-Corredores-de-Seguros/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/jaya-motors.png" alt="Jaya Motors" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Jaya Motors</h3>
+                            <p>Landing page para un centro automotriz.</p>
+                            <a href="https://raldylopez20.github.io/Jaya-Motors/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/joyeria-Gilbert.png" alt="Joyería Gilbert" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Joyería Gilbert</h3>
+                            <p>Landing page para una joyería con estética moderna al servicio del lujo.</p>
+                            <a href="https://raldylopez20.github.io/Joyeria-Gilbert/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACTO ===================== -->
+        <section id="contacto" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-copy">
+                        <span class="section-label">Contacto</span>
+                        <h2>¿Listo para empezar <em>tu proyecto</em>?</h2>
+                        <p>Hablemos directamente sobre tu idea. Te ofrezco una consulta gratuita y sin compromiso para definir la mejor solución digital.</p>
+
+                        <div class="contact-actions">
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/raldy-lópez-368420230/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/raldylopez/" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="https://wa.me/18294635850?text=%C2%A1Hola%20Raldy!%20Vi%20tu%20portafolio%20y%20me%20interesa%20cotizar%20un%20proyecto%20web.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-side">
+                        <div class="contact-features">
+                            <div class="feature-item">
+                                <span class="feature-num">01</span>
+                                <div>
+                                    <h4>Respuesta rápida</h4>
+                                    <p>Comunicación directa y sin intermediarios.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-num">02</span>
+                                <div>
+                                    <h4>Consulta gratuita</h4>
+                                    <p>Evaluamos tus objetivos y alcance sin costo.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-num">03</span>
+                                <div>
+                                    <h4>Proyectos personalizados</h4>
+                                    <p>Diseño y código a medida enfocado en resultados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
         <div class="container">
-            <!-- Título de la sección -->
-            <h2 class="section-title">¿Por qué elegir mis servicios?</h2>
-            <p class="section-subtitle">Transformo tus ideas en experiencias digitales que generan resultados.</p>
-
-            <!-- Grid de servicios - 3 columnas en desktop -->
-            <div class="services-grid">
-
-
-                <!--  SaaS -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"></path>
-                            <polyline points="13 17 16 14 13 11"></polyline>
-                        </svg>
-                    </div>
-                    <h3>SaaS</h3>
-                    <p>Aplicaciones web escalables y modernas para tu negocio.</p>
-                </div>
-
-                <!--  Landing Pages -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M3 12h18m-9-9v18"></path>
-                            <circle cx="12" cy="12" r="9"></circle>
-                        </svg>
-                    </div>
-                    <h3>Landing Pages</h3>
-                    <p>Páginas de aterrizaje optimizadas para maximizar tus tasas de conversión.</p>
-                </div>
-
-                <!-- Páginas Web Profesionales -->
-                <div class="service-card">
-                    <!-- Icono del servicio -->
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="9" y1="9" x2="15" y2="9"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <!-- Título del servicio -->
-                    <h3>Páginas Web Profesionales</h3>
-                    <!-- Descripción del servicio -->
-                    <p>Diseño y desarrollo de sitios web modernos, rápidos y optimizados para conversiones.</p>
-                </div>
-
-                <!-- SERVICIO 3: Funnels de Ventas -->
-                <!-- <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
-                    </div>
-                    <h3>Embudos de Ventas</h3>
-                    <p>Sistemas completos de embudo de ventas para guiar a tus clientes hacia la compra</p>
-                </div> -->
-
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-    <!-- =============================================================================== SISTEMAS SaaS ================================================================================== -->
-
-    <section id="proyectos" class="projects">
-
-        <div class="container">
-
-            <!-- Título de la sección -->
-            <h2 class="section-title">Sistemas SaaS</h2>
-            <p class="section-subtitle">Proyectos que demuestran mi experiencia</p>
-
-            <!-- Grid de proyectos -->
-            <div class="projects-grid">
-
-
-                <!-- Click Menu : -->
-                <div class="project-card">
-                    <!-- Contenedor de la imagen -->
-                    <div class="project-image">
-
-                        <!-- IMAGEN -->
-                        <img src="img/clickmenu.png" alt="ClickMenu" class="project-img">
-
-                        <!-- Overlay que aparece al hacer hover sobre la imagen -->
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <!-- Contenido del proyecto (texto, tecnologías y botón) -->
-                    <div class="project-content">
-                        <h3>ClickMenu</h3>
-                        <p>Sistema de menús digitales para restaurantes </p>
-
-
-                        <!-- Botón para ver el proyecto -  -->
-                        <a href="https://getclickmenu.com/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-
-                <!-- COMING SOON.. -->
-                <!-- <div class="project-card">
-                    <div class="project-image">
-                        <img src="ruta/a/tu/imagen3.jpg" alt="SaaS" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Coming soon...</h3>
-                        <p>NSLQVAPM🐎👁️...</p>
-
-                        <div class="project-tech">
-                            <span>???</span>
-                            <span>???</span>
-                            <span>???</span>
-                        </div>
-
-                        <a href="#" class="btn-project" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                    </div>
-                </div> -->
-
-
-
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- =============================================================================== LANDING PAGES ================================================================================== -->
-    <section id="proyectos" class="projects">
-        <div class="container">
-
-            <!-- Título de la sección -->
-            <h2 class="section-title">Landing pages</h2>
-            <p class="section-subtitle">Casos de éxito que demuestran mi experiencia</p>
-
-            <!-- Grid de proyectos -->
-            <div class="projects-grid">
-
-
-                <!-- DIAPOSITIVE STUDIOS -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/diapositive studio.png" alt="Funnel de Ventas" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Diapositive Studios</h3>
-                        <p>Landing Pages para una Agencia de Marketing</p>
-
-
-                        <a href="https://raldylopez20.github.io/Diapositive.Studios/" class="btn-project"
-                            target="_blank" rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- LOPEZ GILBERT : -->
-                <div class="project-card">
-                    <!-- Contenedor de la imagen -->
-                    <div class="project-image">
-
-                        <!-- IMAGEN -->
-                        <img src="img/lopez-gilbert.png" alt="Tienda Online Moda" class="project-img">
-
-                        <!-- Overlay que aparece al hacer hover sobre la imagen -->
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <!-- Contenido del proyecto (texto, tecnologías y botón) -->
-                    <div class="project-content">
-                        <h3>Lopez Gilbert Corredores de Seguros</h3>
-                        <p>Landing Pages para una oficina de corredores de seguros </p>
-
-
-                        <!-- Botón para ver el proyecto -  -->
-                        <a href="https://raldylopez20.github.io/Lopez-Gilbert-Corredores-de-Seguros/"
-                            class="btn-project" target="_blank" rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- JAYA MOTORS.. -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/jaya-motors.png" alt="Funnel de Ventas" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Jaya Motors</h3>
-                        <p>Landing Pages para un centro automotriz </p>
-
-
-                        <a href="https://raldylopez20.github.io/Jaya-Motors/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- JOYERIA GILBERT: -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- IMAGEN  -->
-                        <img src="img/joyeria-Gilbert.png" alt="Landing Corporativa" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Joyeria Gilbert</h3>
-                        <p>Landing Pages para una Joyeria con estética moderna. al servicio del lujo.</p>
-
-
-                        <a href="https://raldylopez20.github.io/Joyeria-Gilbert/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-
-                <!-- COMING SOON.. -->
-                <!-- <div class="project-card">
-                    <div class="project-image">
-                        <img src="ruta/a/tu/imagen3.jpg" alt="Landing Pages" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Coming soon...</h3>
-                        <p>NSLQVAPM🐎👁️...</p>
-
-                        <div class="project-tech">
-                            <span>WordPress</span>
-                            <span>WooCommerce</span>
-                            <span>Elementor</span>
-                        </div>
-
-                        <a href="#" class="btn-project" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                    </div>
-                </div> -->
-
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- =============================================================================== PAGINAS WEB COMPLETAS ================================================================================== -->
-    <section id="paginas-web" class="projects">
-        <div class="container">
-
-            <!-- Título de la sección -->
-            <h2 class="section-title">Páginas web profesionales</h2>
-            <p class="section-subtitle">Proyectos que demuestran mi experiencia</p>
-
-            <!-- Grid de proyectos -->
-            <div class="projects-grid">
-
-                <!-- PORTAFOLIO MODELAJE: -->
-                <div class="project-card">
-                    <!-- Contenedor de la imagen -->
-                    <div class="project-image">
-
-                        <!-- IMAGEN -->
-                        <img src="img/Portafolio-modelaje.png" alt="Tienda Online Moda" class="project-img">
-
-                        <!-- Overlay que aparece al hacer hover sobre la imagen -->
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <!-- Contenido del proyecto (texto, tecnologías y botón) -->
-                    <div class="project-content">
-                        <h3>Modeling Portfolio</h3>
-                        <p>Portafolio de modelaje personal.</p>
-
-
-                        <!-- Botón para ver el proyecto -  -->
-                        <a href="https://raldylopez20.github.io/Modeling-Portfolio/index.html" class="btn-project"
-                            target="_blank" rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!--Inmo RD -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/inmoRD.png" alt="InmoRD" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Inmo RD</h3>
-                        <p>Pagina web completa para una Agencia Inmobiliaria.</p>
-
-
-                        <a href="https://inmobiliaria.riclyn.com/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!--RLopez Auto Import-->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/RLopez Auto Import.png" alt="RLopez Auto Import" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>RLopez Auto Import</h3>
-                        <p>Pagina web completa para una Dealer de Vehiculos.</p>
-
-
-                        <a href="https://autoimport.riclyn.com/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-
-                <!-- GUITAR LA: -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- IMAGEN  -->
-                        <img src="img/GuitarLA.png" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Guitar LA</h3>
-                        <p>Pagina web para una tienda de guitarras.</p>
-
-
-                        <a href="https://raldylopez20.github.io/Guitar-LA/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- Blog de Caffe: -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/Blog-de-cafe.png" alt="Funnel de Ventas" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Blog de Cafe</h3>
-                        <p>Pagina web sobre un Blog de cafe .</p>
-
-
-                        <a href="https://raldylopez20.github.io/Blog_De_Cafe/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-
-                <!-- Nucleus Wallet: -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/nucleus.png" alt="Funnel de Ventas" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Nucleus Wallet</h3>
-                        <p>Pagina web sobre una cartera digital.</p>
-
-
-                        <a href="https://raldylopez20.github.io/Nucleus-ewallet/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!--Blog de Caffe: -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/Arquitectura-Bosque.png" alt="Funnel de Ventas" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Arquitectura Bosque</h3>
-                        <p>Pagina web sobre una contructora.</p>
-
-
-                        <a href="https://raldylopez20.github.io/ArquitecturaBosque/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!--Lopez Pro: -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- AQUÍ VA TU IMAGEN - Reemplaza con tu ruta real -->
-                        <img src="img/lopez-pro.png" alt="Funnel de Ventas" class="project-img">
-
-                        <div class="project-overlay">
-                            <span class="overlay-text">Ver Proyecto</span>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Arquitectura Bosque</h3>
-                        <p>Pagina web para una tienda de audifonos.</p>
-
-
-                        <a href="https://raldylopez20.github.io/Tienda-audifonos/" class="btn-project" target="_blank"
-                            rel="noopener noreferrer">
-                            <span class="btn-icon-box"><i class="bi bi-box-arrow-up-right"></i></span>
-                            <span class="btn-text">Ver Proyecto</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-
-
-                <!--FIN-->
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- ============================================
-         CONTACTO - CONTACT SECTION
-         Sección de contacto con WhatsApp
-         ============================================ -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2 class="section-title">¿Listo para empezar tu proyecto?</h2>
-            <p class="section-subtitle">Hablemos de cómo puedo ayudarte a alcanzar tus objetivos</p>
-
-            <!-- Grid de 2 columnas: Info + Features -->
-            <div class="contact-content">
-                <!-- Columna izquierda: Información -->
-                <div class="contact-info">
-                    <h3>Hablemos directamente</h3>
-                    <p>Contáctame para una consulta gratuita y sin compromiso</p>
-
-                    <!-- Botones de redes sociales -->
-                    <div class="social-buttons">
-                        <!-- Botón de LinkedIn -->
-                        <a href="https://www.linkedin.com/in/raldy-lópez-368420230/" class="social-btn linkedin-btn"
-                            target="_blank">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-
-                        <!-- Botón de Instagram -->
-                        <a href="https://www.instagram.com/raldylopez/" class="social-btn instagram-btn"
-                            target="_blank">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-
-                        <!-- Botón de WhatsApp -->
-                        <a href="https://wa.me/+18294635850" class="social-btn whatsapp-btn" target="_blank">
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Columna derecha: Características del servicio -->
-                <div class="contact-features">
-                    <div class="feature-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Respuesta rápida</span>
-                    </div>
-                    <div class="feature-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Consulta gratuita</span>
-                    </div>
-                    <div class="feature-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Proyectos personalizados</span>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">RL</span>
+                    <p>Desarrollador Full Stack enfocado en crear experiencias digitales premium, rápidas y memorables.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         BOTÓN FLOTANTE WHATSAPP
-         Botón flotante con animación
-         ============================================ -->
-    <a href="https://wa.me/+18294635850" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
-        <i class="bi bi-whatsapp"></i>
-    </a>
-
-    <!-- ============================================
-         FOOTER - PIE DE PÁGINA
-         ============================================ -->
-    <footer class="footer">
-        <div class="container">
-            <p>© Raldy Lopez. Todos los derechos reservados 2026.</p>
+            <div class="footer-bottom">
+                <p>© 2026 Ing. Raldy Lopez. Todos los derechos reservados.</p>
+                <p>Developed by <a href="#inicio" class="developer-link">Ing. Raldy Lopez</a></p>
+            </div>
         </div>
     </footer>
 
-    <!-- ============================================
-         JAVASCRIPT - Archivo de interactividad
-         ============================================ -->
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/18294635850?text=%C2%A1Hola%20Raldy!%20Vi%20tu%20portafolio%20y%20me%20interesa%20cotizar%20un%20proyecto%20web.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <!-- Vanilla Tilt 3D Cards -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+
+    <!-- App Script -->
     <script src="script.js"></script>
 </body>
 
