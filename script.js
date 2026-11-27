@@ -246,12 +246,13 @@ const getCardConfigs = () => {
             { left: '4%',  top: '48%', rot:  -6, w: Math.round(126 * scale), depth: 0 },
             { left: '78%', top: '48%', rot:   7, w: Math.round(126 * scale), depth: 0 },
             { left: '26%', top: '86%', rot:  -7, w: Math.round(126 * scale), depth: 0 },
+            { left: '54%', top: '87%', rot:   6, w: Math.round(126 * scale), depth: 0 },
         ];
     }
 
     // Perimeter ring framing the centered Profile Card (avoiding 36%–64% center band)
     return [
-        // Left side (8 cards)
+        // Left side (9 cards)
         { left: '2%',  top: '10%', rot: -10, w: Math.round(168 * scale), depth: 1.15 },
         { left: '17%', top: '16%', rot:   7, w: Math.round(156 * scale), depth: 0.85 },
         { left: '1%',  top: '39%', rot:   6, w: Math.round(176 * scale), depth: 1.40 },
@@ -260,6 +261,7 @@ const getCardConfigs = () => {
         { left: '20%', top: '79%', rot:   9, w: Math.round(154 * scale), depth: 0.90 },
         { left: '24%', top: '6%',  rot:  -6, w: Math.round(148 * scale), depth: 0.75 },
         { left: '12%', top: '87%', rot:  -5, w: Math.round(146 * scale), depth: 0.80 },
+        { left: '9%',  top: '27%', rot:   5, w: Math.round(150 * scale), depth: 0.92 },
 
         // Right side (9 cards)
         { left: '84%', top: '9%',  rot:   9, w: Math.round(168 * scale), depth: 1.10 },
